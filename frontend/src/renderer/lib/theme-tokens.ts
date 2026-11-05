@@ -49,6 +49,7 @@ export function deriveThemeTokens(p: ThemePalette, mode: Mode): Record<string, s
 		"--accent": p.element,
 		"--accent-foreground": p.text,
 		"--destructive": p.red,
+		"--color-danger-strong": p.destructiveFill ?? p.red,
 		"--border": withAlpha(p.text, dark ? 0.09 : 0.11),
 		"--input": withAlpha(p.text, dark ? 0.06 : 0.07),
 		"--ring": p.accent,

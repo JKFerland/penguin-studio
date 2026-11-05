@@ -16,6 +16,7 @@ const themeStyles = [
 	"nord",
 	"gruvbox",
 	"solarized",
+	"matrix",
 ] as const;
 
 async function openChatWithDraft(page: Page, text = draft) {

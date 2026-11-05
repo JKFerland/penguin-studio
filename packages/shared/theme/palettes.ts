@@ -23,6 +23,8 @@ export type ThemePalette = {
 	accent: string;
 	/** Primary button fill when it differs from `accent` (e.g. Vercel's white button). */
 	primary?: string;
+	/** Destructive button fill when `red` is too light to carry its white label. */
+	destructiveFill?: string;
 	red: string;
 	orange: string;
 	yellow: string;
@@ -371,6 +373,26 @@ export const THEMES = [
 			text: "#100f0f", muted: "#6f6e69", accent: "#bc5215",
 			red: "#af3029", orange: "#bc5215", yellow: "#ad8301", green: "#66800b",
 			blue: "#205ea6", purple: "#5e409d", cyan: "#24837b",
+		},
+	},
+	{
+		id: "matrix",
+		label: "Matrix",
+		// Green owns the surfaces, text and accent. Status hues stay off green so
+		// failure and caution never read as the accent.
+		dark: {
+			bg: "#0a0f0b", sidebar: "#060a07", panel: "#0f1610", element: "#18241a",
+			text: "#d4f5dc", muted: "#86b894", accent: "#00ff41", destructiveFill: "#d92d2d",
+			red: "#ff5c5c", orange: "#ff9f43", yellow: "#ffd93d", green: "#4be37a",
+			blue: "#5cb8ff", purple: "#c39bff", cyan: "#3fe0d0",
+		},
+		// #00ff41 is unreadable on a light plate, so the light accent is the same
+		// hue taken down to clear AA.
+		light: {
+			bg: "#f3faf4", sidebar: "#e8f3ea", panel: "#fbfefb", element: "#dceadf",
+			text: "#0c2914", muted: "#3f6b4c", accent: "#007a21",
+			red: "#c62828", orange: "#b85c00", yellow: "#8f6f00", green: "#1a8a3a",
+			blue: "#0f6cbd", purple: "#7b3fc4", cyan: "#0b7d7d",
 		},
 	},
 ] as const satisfies readonly ThemeDefinition[];
